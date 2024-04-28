@@ -131,6 +131,7 @@ div.csl-indent {
 <section id="nota-sobre-recodificación-de-variables" class="level3">
 <h3 class="anchored" data-anchor-id="nota-sobre-recodificación-de-variables">Nota sobre recodificación de variables:</h3>
 <ul>
+<li></li>
 <li><p>A la hora de recodificar las categorías de respuestas, me percaté que las preguntas seleccionadas no estaban en el mismo sentido, es decir, algunas preguntaban de forma negativa “los inmigrantes vienen a competir por nuestros puestos de trabajo”, mientras que otras en forma positiva “Los inmigrantes son buenos para la economía del país”. Por esto, se recodificaron de forma ascendente sólo las preguntas en positivo (1. perjudicial y 4. beneficioso). Para que las respuestas de las preguntas en sentido negativo (1.muy de acuerdo y 4. muy desacuerdo) calzáran de la misma forma, para que así, podamos entender que a modo general, todas las respuestas van a significar que 1. es una percepción perjudicial y 4. es una percepción relacionada a la sensación de beneficio para el país.</p>
 <h3 id="procesamiento-de-variables." class="anchored">Procesamiento de variables.</h3>
 <div class="cell">
@@ -383,24 +384,27 @@ Mujer  | 637 | 53.08 |   53.08 | 100.00
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">6</span></td>
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">1092</span></td> 
 </tr>
-<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="15">χ<sup>2</sup>=13.198 · df=12 · Cramer's V=0.110 · Fisher's p=0.352</td> 
+<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="15">χ<sup>2</sup>=13.198 · df=12 · Cramer's V=0.110 · Fisher's p=0.332</td> 
 </tr>
  
 </tbody></table>
 </div>
 </div>
 <p>A partir del procesamiento de la base de datos, se construyó la variable “Percepción de inmigración” segmentada en primera instancia, por el sexo. Como vemos, existe un aumento de casos en las categorías 10 y 11,donde si bien no hay mayor distincion entre sexos, se ve que las mujeres perciben de manera mas positiva la inmigración en Chile. Sin embargo, esto puede deberse a que representan un mayor número de casos.</p>
+</section>
+<section id="análisis-descriptivo-de-las-variables-para-el-fenómeno-de-percepción-migratoria." class="level3">
+<h3 class="anchored" data-anchor-id="análisis-descriptivo-de-las-variables-para-el-fenómeno-de-percepción-migratoria.">Análisis descriptivo de las variables para el fenómeno de percepción migratoria.</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(<span class="fu">dfSummary</span>(proc_data, <span class="at">headings=</span><span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Switching method to 'browser'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Output file written: C:\Users\Acer\AppData\Local\Temp\RtmpOeqCd9\file211077e62c65.html</code></pre>
+<pre><code>Output file written: C:\Users\Acer\AppData\Local\Temp\Rtmp4Q4ecw\file19c423ff4ffc.html</code></pre>
 </div>
 </div>
 <ul>
-<li>Sumado a lo anterior, podemos ver que si bien los encuestados perciben de manera mas beneficiosa la llegada de inmigrantes (impacto_inmg), reconocen que este fenómeno les hace sentir que tiene mayores repercusiones negativas en la economía (impacto_econom) y perciben de manera negativa o perjudicial (en menor nivel) que la inmigración causan aumento en el crimen (impacto_crimen)y la cultura que ellos enmascaran (impacto_cultural).</li>
+<li>Podemos apreciar que, si bien los encuestados perciben de manera mas beneficiosa la llegada de inmigrantes (impacto_inmg), reconocen que este fenómeno les hace sentir que tiene mayores repercusiones negativas en la economía (impacto_econom) y perciben de manera negativa o perjudicial (en menor nivel) que la inmigración causan aumento en el crimen (impacto_crimen)y la cultura que ellos enmascaran (impacto_cultural).</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>graph1 <span class="ot">&lt;-</span> proc_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> percep_inmg)) <span class="sc">+</span> </span>
@@ -573,6 +577,9 @@ inmigracion</td>
 </div>
 </div>
 <p>En el gráfico expuesto, podemos apreciar nuevamente que la mayor frecuencia se da entre 9 y 11 aprox, esto es, la mayor tasa de respuesta se da en una percepción mas bien positiva, donde se reconoce en general, que la inmigración puede ser más beneficiosa que perjudicial, pues se establecen porcentajes por sobre el 25%. mientras que en las categorías más extremas, no supera el 1%.</p>
+</section>
+<section id="percepción-sobre-inmigración-de-acuerdo-a-temáticas-y-segmentación-por-sexo." class="level3">
+<h3 class="anchored" data-anchor-id="percepción-sobre-inmigración-de-acuerdo-a-temáticas-y-segmentación-por-sexo.">Percepción sobre inmigración de acuerdo a temáticas y segmentación por Sexo.</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>proc_data <span class="sc">%&gt;%</span> </span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(percep_inmg,sexo) <span class="sc">%&gt;%</span></span>
@@ -635,17 +642,25 @@ inmigracion</td>
 <p><img src="reporte,quarto_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="sobre-temáticas-asociadas-a-la-inmigración" class="level3">
+<h3 class="anchored" data-anchor-id="sobre-temáticas-asociadas-a-la-inmigración">Sobre temáticas asociadas a la inmigración:</h3>
+<p>A partir del gráfico 2, podemos apreciar que:</p>
 <ul>
-<li><p>Si bien anteriormente vimos la dimensión sexo en general, en el gráfico 3 exploraremos de forma mas específica. En el gráfico 2, vemos que se observan diferencias en las percepciones de acuerdo a diferentes temáticas contingentes del país, donde observamos que:</p></li>
 <li><div>
 <ol type="1">
-<li>Podemos ver que, efectivamente las mujeres representan la mayor tasa de respuesta y representan en mayor cantidad la percepción positiva/beneficiosa de la inmigración.</li>
 <li>A grandes rasgos, los encuestados exponen que ellos y sus familias perciben de manera mas beneficiosa que perjudicial la inmigración (61.9%)</li>
-<li>Los encuestados tienen una percepción mas negativa sobre la inmigración por el impacto cultral que ellos generan en Chile, así como el impato negativo que perciben en la economía.</li>
+<li>Los encuestados tienen una percepción mas negativa sobre la inmigración por el impacto cultural que ellos generan en Chile, así como el impato negativo que perciben en la economía.</li>
 <li>En base a la temática laboral y en materia de delito/criminal. Si bien los encuestados no ven que los inmigrantes vengan a competir por puestos de trabajo (40.9%), esta cifra está muy cercana a la cantidad de personas que expone que esto ni beneficia ni perjudica (40.2%).</li>
 </ol>
-<p>Entonces, la inmigración en sí la encuentran beneficiosa, reconocen que existen impactos negativos en el país en materia económica y criminal.</p>
+<p>Entonces, la inmigración en sí la encuentran beneficiosa, que tienen una percepción sobre la inmigración de maera más positiva, se reconoce que existen impactos negativos en el país en materia económica y criminal, es en estás temáticas donde los encuestados se ven más amenazados o perjudicados por el fenómeno inmigratorio.</p>
 </div></li>
+</ul>
+</section>
+<section id="segmentación-por-sexo." class="level3">
+<h3 class="anchored" data-anchor-id="segmentación-por-sexo.">Segmentación por Sexo.</h3>
+<ul>
+<li>A partir del gráfico 3, podemos ver que, efectivamente las mujeres representan la mayor tasa de respuesta a la hora de explicitar una percepción positiva/beneficiosa de la inmigración. Sin embargo, si recordamos los datos antes expuestos, tenemos que existe mayor porcentaje de mujeres en la muestra. Por ende, en base a esto, podríamos establecer que las respuestas no tienen mayor diferencia entre sexos y que la percepción sobre la inmigración es un fenómeno que se percibe de formas similares entre los encuestados..</li>
 </ul>
 
 </section>

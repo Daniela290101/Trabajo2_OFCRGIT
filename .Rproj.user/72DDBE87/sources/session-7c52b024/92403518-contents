@@ -22,6 +22,8 @@ Para esto, la metodología se basará en el uso de fuentes de información de ti
 
 ### Nota sobre recodificación de variables:
 
+-   
+
 -   A la hora de recodificar las categorías de respuestas, me percaté que las preguntas seleccionadas no estaban en el mismo sentido, es decir, algunas preguntaban de forma negativa "los inmigrantes vienen a competir por nuestros puestos de trabajo", mientras que otras en forma positiva "Los inmigrantes son buenos para la economía del país". Por esto, se recodificaron de forma ascendente sólo las preguntas en positivo (1. perjudicial y 4. beneficioso). Para que las respuestas de las preguntas en sentido negativo (1.muy de acuerdo y 4. muy desacuerdo) calzáran de la misma forma, para que así, podamos entender que a modo general, todas las respuestas van a significar que 1. es una percepción perjudicial y 4. es una percepción relacionada a la sensación de beneficio para el país.
 
     ### Procesamiento de variables.
@@ -171,11 +173,13 @@ sjt.xtab(proc_data$sexo, proc_data$percep_inmg, encoding = "UTF-8")
 
 A partir del procesamiento de la base de datos, se construyó la variable "Percepción de inmigración" segmentada en primera instancia, por el sexo. Como vemos, existe un aumento de casos en las categorías 10 y 11,donde si bien no hay mayor distincion entre sexos, se ve que las mujeres perciben de manera mas positiva la inmigración en Chile. Sin embargo, esto puede deberse a que representan un mayor número de casos.
 
+### Análisis descriptivo de las variables para el fenómeno de percepción migratoria.
+
 ```{r}
 view(dfSummary(proc_data, headings=FALSE))
 ```
 
--   Sumado a lo anterior, podemos ver que si bien los encuestados perciben de manera mas beneficiosa la llegada de inmigrantes (impacto_inmg), reconocen que este fenómeno les hace sentir que tiene mayores repercusiones negativas en la economía (impacto_econom) y perciben de manera negativa o perjudicial (en menor nivel) que la inmigración causan aumento en el crimen (impacto_crimen)y la cultura que ellos enmascaran (impacto_cultural).
+-   Podemos apreciar que, si bien los encuestados perciben de manera mas beneficiosa la llegada de inmigrantes (impacto_inmg), reconocen que este fenómeno les hace sentir que tiene mayores repercusiones negativas en la economía (impacto_econom) y perciben de manera negativa o perjudicial (en menor nivel) que la inmigración causan aumento en el crimen (impacto_crimen)y la cultura que ellos enmascaran (impacto_cultural).
 
 ```{r}
 graph1 <- proc_data %>% ggplot(aes(x = percep_inmg)) + 
@@ -195,6 +199,8 @@ sjt.xtab(proc_data$percep_inmg, proc_data$sexo,
 ```
 
 En el gráfico expuesto, podemos apreciar nuevamente que la mayor frecuencia se da entre 9 y 11 aprox, esto es, la mayor tasa de respuesta se da en una percepción mas bien positiva, donde se reconoce en general, que la inmigración puede ser más beneficiosa que perjudicial, pues se establecen porcentajes por sobre el 25%. mientras que en las categorías más extremas, no supera el 1%.
+
+### Percepción sobre inmigración de acuerdo a temáticas y segmentación por Sexo.
 
 ```{r}
 proc_data %>% 
@@ -223,17 +229,23 @@ graph3 <- proc_data %>% ggplot(aes(x = percep_inmg, fill = sexo)) +
   scale_fill_discrete(labels = c('Hombre','Mujer'))
 
 graph3
+
 ```
 
--   Si bien anteriormente vimos la dimensión sexo en general, en el gráfico 3 exploraremos de forma mas específica. En el gráfico 2, vemos que se observan diferencias en las percepciones de acuerdo a diferentes temáticas contingentes del país, donde observamos que:
+### Sobre temáticas asociadas a la inmigración:
+
+A partir del gráfico 2, podemos apreciar que:
 
 -   <div>
 
-    1.  Podemos ver que, efectivamente las mujeres representan la mayor tasa de respuesta y representan en mayor cantidad la percepción positiva/beneficiosa de la inmigración.
-    2.  A grandes rasgos, los encuestados exponen que ellos y sus familias perciben de manera mas beneficiosa que perjudicial la inmigración (61.9%)
-    3.  Los encuestados tienen una percepción mas negativa sobre la inmigración por el impacto cultral que ellos generan en Chile, así como el impato negativo que perciben en la economía.
-    4.  En base a la temática laboral y en materia de delito/criminal. Si bien los encuestados no ven que los inmigrantes vengan a competir por puestos de trabajo (40.9%), esta cifra está muy cercana a la cantidad de personas que expone que esto ni beneficia ni perjudica (40.2%).
+    1.  A grandes rasgos, los encuestados exponen que ellos y sus familias perciben de manera mas beneficiosa que perjudicial la inmigración (61.9%)
+    2.  Los encuestados tienen una percepción mas negativa sobre la inmigración por el impacto cultural que ellos generan en Chile, así como el impato negativo que perciben en la economía.
+    3.  En base a la temática laboral y en materia de delito/criminal. Si bien los encuestados no ven que los inmigrantes vengan a competir por puestos de trabajo (40.9%), esta cifra está muy cercana a la cantidad de personas que expone que esto ni beneficia ni perjudica (40.2%).
 
-    Entonces, la inmigración en sí la encuentran beneficiosa, reconocen que existen impactos negativos en el país en materia económica y criminal.
+    Entonces, la inmigración en sí la encuentran beneficiosa, que tienen una percepción sobre la inmigración de maera más positiva, se reconoce que existen impactos negativos en el país en materia económica y criminal, es en estás temáticas donde los encuestados se ven más amenazados o perjudicados por el fenómeno inmigratorio.
 
     </div>
+
+### Segmentación por Sexo.
+
+-   A partir del gráfico 3, podemos ver que, efectivamente las mujeres representan la mayor tasa de respuesta a la hora de explicitar una percepción positiva/beneficiosa de la inmigración. Sin embargo, si recordamos los datos antes expuestos, tenemos que existe mayor porcentaje de mujeres en la muestra. Por ende, en base a esto, podríamos establecer que las respuestas no tienen mayor diferencia entre sexos y que la percepción sobre la inmigración es un fenómeno que se percibe de formas similares entre los encuestados..
