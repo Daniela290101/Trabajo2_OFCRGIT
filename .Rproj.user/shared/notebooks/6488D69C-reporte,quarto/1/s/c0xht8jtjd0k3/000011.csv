@@ -1,0 +1,11 @@
+"0","    frq(proc_data$sexo)
+"
+"1","[31mSexo (x)[39m[34m <categorical>[39m 
+[34m# total N=1200 valid N=1200 mean=1.53 sd=0.50[39m
+
+Value  |   N | Raw % | Valid % | Cum. %
+---------------------------------------
+Hombre | 563 | 46.92 |   46.92 |  46.92
+Mujer  | 637 | 53.08 |   53.08 | 100.00
+<NA>   |   0 |  0.00 |    <NA> |   <NA>
+"

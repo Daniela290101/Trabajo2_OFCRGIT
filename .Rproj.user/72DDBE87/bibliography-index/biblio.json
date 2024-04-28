@@ -1,0 +1,121 @@
+{
+    "sources": [
+        {
+            "DOI": "10.14422/mig.2023.021",
+            "author": [
+                {
+                    "family": "Nairbis Desirée Sibrian Díaz"
+                },
+                {
+                    "family": "Neida Josefina Colmenares Mejías"
+                },
+                {
+                    "family": "Juan Carlos Núñez Silva"
+                }
+            ],
+            "container-title": "Migraciones. Publicación del Instituto Universitario de Estudios sobre Migraciones",
+            "id": "nairbisdesiréesibriandíaz2023",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023,
+                        9,
+                        21
+                    ]
+                ]
+            },
+            "note": "DOI: 10.14422/mig.2023.021 MAG ID: 4386931004 S2ID: 688e509b89cedd9daf926abd52943e1580f288e4",
+            "title": "Estrategias desinformativas sobre migración en chile: Encuadre de noticias falsas respecto a la movilidad humana",
+            "title-short": "Estrategias desinformativas sobre migración en chile",
+            "type": "article-journal"
+        },
+        {
+            "URL": "Navarrete Yáñez, Bernardo. (2017). Percepciones sobre inmigración en Chile: Lecciones para una política migratoria. Migraciones internacionales, 9(1), 179-209. Recuperado en 19 de abril de 2024, de http://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S1665-89062017000100179&lng=es&tlng=es.",
+            "author": [
+                {
+                    "family": "Navarrete Yáñez",
+                    "given": "Bernardo"
+                }
+            ],
+            "id": "navarreteyáñez2017",
+            "issue": "9",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "language": "español",
+            "title": "Percepciones sobre inmigración en Chile: Lecciones para una política migratoria",
+            "title-short": "Percepciones sobre inmigración en Chile",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Constanza Ambiado Cortés"
+                },
+                {
+                    "family": "Cortés",
+                    "given": "Constanza Ambiado"
+                },
+                {
+                    "family": "Rosario Fernández Ossandón"
+                },
+                {
+                    "family": "Ossandón",
+                    "given": "Rosario Fernández"
+                }
+            ],
+            "id": "constanzaambiadocortés2012",
+            "issue": "10",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012,
+                        1,
+                        1
+                    ]
+                ]
+            },
+            "note": "MAG ID: 178500702",
+            "page": "276-288",
+            "title": "Sobre inmigrantes latinoamericanos en la televisión chilena: Estigmas y fronteras en las narrativas audiovisuales",
+            "title-short": "Sobre inmigrantes latinoamericanos en la televisión chilena",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Villarraga Orjuela"
+                },
+                {
+                    "family": "Orjuela",
+                    "given": "Villarraga"
+                },
+                {
+                    "family": "G Hernán"
+                },
+                {
+                    "family": "Hernán",
+                    "given": "G"
+                }
+            ],
+            "id": "villarragaorjuela2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015,
+                        5,
+                        8
+                    ]
+                ]
+            },
+            "note": "MAG ID: 2510092693 S2ID: 42346bbc32c31d856a9d05f9d009918b0bd7b16e",
+            "title": "Migración interna, movilidad residencial y dinámicas metropolitanas en colombia. Una aproximación desde la demografía espacial a los movimientos de población registrados en los censos de 1964, 1973, 1993 y 2005.",
+            "type": "article-journal"
+        }
+    ],
+    "project_biblios": []
+}
