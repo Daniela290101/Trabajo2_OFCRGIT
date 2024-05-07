@@ -1,0 +1,1 @@
+"0","proc_data %>% dplyr::group_by(sexo) %>% summarise(mean(percep_inmg, na.rm=TRUE))"

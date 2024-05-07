@@ -1,0 +1,7 @@
+"0","#Quitamos los na (-5)
+proc_baro2 <- data2 %>% 
+  set_na(., na = c(-5)) %>% 
+  na.omit()
+"
+"2","Error: objeto 'data2' no encontrado
+"

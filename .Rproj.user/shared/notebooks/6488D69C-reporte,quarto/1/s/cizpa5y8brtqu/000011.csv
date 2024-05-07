@@ -1,0 +1,2 @@
+"0","library(sjPlot)"
+"0","sjt.xtab(proc_data$sexo, proc_data$percep_inmg, encoding = ""UTF-8"")"

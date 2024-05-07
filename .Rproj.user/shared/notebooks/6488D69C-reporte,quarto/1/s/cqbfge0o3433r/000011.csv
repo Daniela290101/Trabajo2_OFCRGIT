@@ -1,0 +1,6 @@
+"0",""
+"0","#Tabla de contingencia."
+"0","sjt.xtab(proc_data$percep_inmg, proc_data$sexo,"
+"0","         show.col.prc=TRUE,"
+"0","         show.summary=FALSE,"
+"0","         encoding = ""UTF-8"")"

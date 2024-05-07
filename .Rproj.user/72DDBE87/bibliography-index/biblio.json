@@ -115,6 +115,18 @@
             "note": "MAG ID: 2510092693 S2ID: 42346bbc32c31d856a9d05f9d009918b0bd7b16e",
             "title": "Migración interna, movilidad residencial y dinámicas metropolitanas en colombia. Una aproximación desde la demografía espacial a los movimientos de población registrados en los censos de 1964, 1973, 1993 y 2005.",
             "type": "article-journal"
+        },
+        {
+            "URL": "file:///C:/Users/Acer/Downloads/F00017020-Latinobarometro_2023_Chile_v1_0.pdf",
+            "author": [
+                {
+                    "family": "Latinobarómetro"
+                }
+            ],
+            "id": "latinobarómetro",
+            "language": "español",
+            "title": "Latinobarómetro 2023 Chile",
+            "type": "article-journal"
         }
     ],
     "project_biblios": []

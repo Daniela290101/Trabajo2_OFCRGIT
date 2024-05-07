@@ -1,0 +1,47 @@
+
+{r}
+#Proyecto de investigación en base a Latinobarómetro-2023.
+#install.packages("weatherData", repos = "http://cran.us.r-project.org")
+#install.packages("pacman", repos = "http://cran.us.r-project.org")
+
+pacman::p_load(sjlabelled,
+               dplyr, #Manipulacion de datos
+               stargazer, #Tablas
+               sjmisc, # Tablas
+               summarytools, # Tablas
+               kableExtra, #Tablas
+               sjPlot, #Tablas y gráficos
+               corrplot, # Correlaciones
+               sessioninfo, # Información de la sesión de trabajo
+               ggplot2)
+
+
+rm(list=ls())       
+options(scipen=999) 
+
+#Cargar BBDD.
+Latinobarometro_2023 <- load("C:/Users/Acer/OneDrive - Universidad Alberto Hurtado/Escritorio/R studio y complementos/Trabajo2_OFCRGIT/input/Latinobarometro_2023_Esp_Rdata_v1_0.rdata")
+
+#casos perdidos.
+
+{r}
+proc_data <- Latinobarometro_2023_Esp_v1_0 %>% select(P32INN,
+                                                      P33N.A, 
+                                                      P33ST.B, # competir laboralmente
+                                                      P33N.C, # aumento del crimen
+                                                      P33N.D,# carga Estatal
+                                                      sexo,# sexo
+                                                      edad,# edad
+                                                      idenpa) # pais 
+
+# Comprobar
+names(proc_data)
+
+proc_data <- proc_data %>% dplyr::filter(idenpa==152)
+
+#recodificamos.
+proc_data$P32INN <- car::recode(proc_data$P32INN, "c(-5)=NA")
+proc_data$P33N.A <- car::recode(proc_data$P33N.A, "c(-5)=NA")
+proc_data$P33ST.B <- car::recode(proc_data$P33ST.B, "c(-5)=NA")
+proc_data$P33N.C <- car::recode(proc_data$P33N.C, "c(-5)=NA")
+proc_data$P33N.D <- car::recode(proc_data$P33N.D, "c(-5)=NA")

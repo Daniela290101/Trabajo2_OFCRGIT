@@ -1,0 +1,36 @@
+"0","#ALPHA DE CHRONACH.
+psych::alpha(proc_baro2)
+"
+"2","Warning: Matrix was not positive definite, smoothing was done"
+"2","In smc, smcs < 0 were set to .0
+"
+"2","In smc, smcs < 0 were set to .0
+"
+"2","In smc, smcs < 0 were set to .0
+"
+"2","In smc, smcs < 0 were set to .0
+"
+"2","In smc, smcs < 0 were set to .0
+"
+"2","In smc, smcs < 0 were set to .0
+"
+"2","In smc, smcs < 0 were set to .0
+"
+"2","In smc, smcs < 0 were set to .0
+"
+"2","In smc, smcs < 0 were set to .0
+"
+"2","In smc, smcs < 0 were set to .0
+"
+"2","In smc, smcs < 0 were set to .0
+"
+"1","
+Reliability analysis "
+"1"," "
+"1"," 
+"
+"1","Call: "
+"1","psych::alpha(x = proc_baro2)
+"
+"1","
+ "
