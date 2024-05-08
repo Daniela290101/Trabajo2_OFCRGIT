@@ -384,7 +384,7 @@ Mujer  | 637 | 53.08 |   53.08 | 100.00
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">6</span></td>
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">1092</span></td> 
 </tr>
-<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="15">χ<sup>2</sup>=13.198 · df=12 · Cramer's V=0.110 · Fisher's p=0.338</td> 
+<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="15">χ<sup>2</sup>=13.198 · df=12 · Cramer's V=0.110 · Fisher's p=0.366</td> 
 </tr>
  
 </tbody></table>
@@ -400,7 +400,7 @@ Mujer  | 637 | 53.08 |   53.08 | 100.00
 <pre><code>Switching method to 'browser'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Output file written: C:\Users\Acer\AppData\Local\Temp\RtmpGIGQkw\file1f2c67941f99.html</code></pre>
+<pre><code>Output file written: C:\Users\Acer\AppData\Local\Temp\RtmpWO2V0t\file1ea01ea246c9.html</code></pre>
 </div>
 </div>
 <ul>
@@ -672,26 +672,23 @@ inmigracion</td>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Preparación de datos -Correlciones-.</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(dplyr, <span class="co"># Manipulacion datos</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>               sjmisc, <span class="co"># Descriptivos</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>               sjPlot, <span class="co"># Tablas</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>               sjlabelled, <span class="co">#etiquetas</span></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co">#Tablas</span></span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>               GGally, <span class="co"># Correlaciones</span></span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>               corrplot) <span class="co"># Correlaciones</span></span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>Latinobarometro_2023 <span class="ot">&lt;-</span> <span class="fu">load</span>(<span class="st">"C:/Users/Acer/OneDrive - Universidad Alberto Hurtado/Escritorio/R studio y complementos/Trabajo2_OFCRGIT/input/Latinobarometro_2023_Esp_Rdata_v1_0.rdata"</span>)</span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>proc_baro <span class="ot">&lt;-</span> Latinobarometro_2023_Esp_v1_0 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(idenpa<span class="sc">==</span><span class="dv">152</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>Latinobarometro_2023 <span class="ot">&lt;-</span> <span class="fu">load</span>(<span class="st">"C:/Users/Acer/OneDrive - Universidad Alberto Hurtado/Escritorio/R studio y complementos/Trabajo2_OFCRGIT/input/Latinobarometro_2023_Esp_Rdata_v1_0.rdata"</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(dplyr, <span class="co"># Manipulacion datos</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>               sjmisc, <span class="co"># Descriptivos</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>               sjPlot, <span class="co"># Tablas</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>               sjlabelled, <span class="co">#etiquetas</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co">#Tablas</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>               GGally, <span class="co"># Correlaciones</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>               corrplot) <span class="co"># Correlaciones</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>proc_baro <span class="ot">&lt;-</span> Latinobarometro_2023_Esp_v1_0 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(idenpa<span class="sc">==</span><span class="dv">152</span>)</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Selección de una variable numérica y 6 categóricas.</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>proc_baro <span class="ot">&lt;-</span> Latinobarometro_2023_Esp_v1_0 <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="at">edad=</span>edad, <span class="at">economia=</span>P33N.A, <span class="at">trabajo=</span>P33ST.B, <span class="at">crimen=</span>P33N.C, <span class="at">carga=</span>P33N.D)</span>
 <span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a><span class="co">#Selección de una variable numérica y 6 categóricas.</span></span>
-<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>proc_baro <span class="ot">&lt;-</span> Latinobarometro_2023_Esp_v1_0 <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="at">edad=</span>edad, <span class="at">economia=</span>P33N.A, <span class="at">trabajo=</span>P33ST.B, <span class="at">crimen=</span>P33N.C, <span class="at">carga=</span>P33N.D)</span>
-<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>Latinobarometro_2023_Esp_v1_0 <span class="ot">&lt;-</span> proc_baro</span>
-<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(proc_baro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>proc_baro <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(proc_baro)</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(proc_baro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 19205     5</code></pre>
 </div>
@@ -699,7 +696,7 @@ inmigracion</td>
 </section>
 <section id="matrices-de-correlación." class="level4">
 <h4 class="anchored" data-anchor-id="matrices-de-correlación.">Matrices de correlación.</h4>
-<p>En el paso previo, se seleccionaron variables y se realizó un filtro para escoger sólo los casos correspondientes a Chile. A continuación, se eliminaron casos perdidos mediante Listwise-deletion porque los valores perdidos se distribuyeron aleatoriamente y estos casos no nos entregaban informacón adicional y/o relevante al análisis que se quiere hacer.</p>
+<p>En el paso previo, se seleccionaron variables y se realizó un filtro para escoger sólo los casos correspondientes a Chile. A continuación, se eliminaron casos perdidos mediante Listwise-deletion porque los valores perdidos se distribuyeron aleatoriamente y estos casos no nos entregaban informacón adicional y/o relevante que adicionara información al análisis de las percepciónes frente a la inmigración.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#CORRELACIÓN.</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(proc_baro, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
@@ -783,7 +780,7 @@ carga    -0.03060436  0.40696096  0.26589530  0.2814832  1.00000000</code></pre>
 <p><img src="reporte,quarto_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Frente a este gráfico, podemos establecer que las variables tienden a tener correlaciones pequeñas en general, donde destaca que el coeficiente de Pearson entre la variable que mide la percepción de que la inmigración afecta a la economía (economia) y la variable donde que mide la percepción de que la imigración está asociado al crimen (crimen), es una correlación positiva y moderada (r=3.8).</p>
+<p>Frente a este gráfico, podemos establecer que las variables tienden a tener correlaciones pequeñas en general, donde destaca que el coeficiente de Pearson entre la variable que mide la percepción de que la inmigración afecta a la economía (economia) y la variable donde que mide la percepción de que la imigración está asociado al crimen (crimen), es una correlación positiva y moderada (r=3.81).</p>
 </section>
 </section>
 <section id="creación-de-una-escala." class="level3">
@@ -797,46 +794,47 @@ carga    -0.03060436  0.40696096  0.26589530  0.2814832  1.00000000</code></pre>
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>               sjmisc,</span>
 <span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>               psych)</span>
 <span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span>
-<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>Latinobarometro_2023 <span class="ot">&lt;-</span> <span class="fu">load</span>(<span class="st">"C:/Users/Acer/OneDrive - Universidad Alberto Hurtado/Escritorio/R studio y complementos/Trabajo2_OFCRGIT/input/Latinobarometro_2023_Esp_Rdata_v1_0.rdata"</span>)</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="co">#FILTRO BBDD.</span></span>
 <span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>Latinobarometro_2023 <span class="ot">&lt;-</span> <span class="fu">load</span>(<span class="st">"C:/Users/Acer/OneDrive - Universidad Alberto Hurtado/Escritorio/R studio y complementos/Trabajo2_OFCRGIT/input/Latinobarometro_2023_Esp_Rdata_v1_0.rdata"</span>)</span>
-<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="co">#FILTRO BBDD.</span></span>
-<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a><span class="co">#SELECCION VARIABLES PARA ESCALA.</span></span>
-<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>proc_baro2 <span class="ot">&lt;-</span> Latinobarometro_2023_Esp_v1_0 <span class="sc">%&gt;%</span> <span class="fu">select</span>(</span>
-<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>                                            P33N.A, </span>
-<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>                                            P33ST.B, <span class="co"># competir laboralmente</span></span>
-<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a>                                            P33N.C, <span class="co"># aumento del crimen</span></span>
-<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a>                                            P33N.D,</span>
-<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a>                                            idenpa)</span>
-<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(proc_baro2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="co">#SELECCION VARIABLES PARA ESCALA.</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>proc_baro2 <span class="ot">&lt;-</span> Latinobarometro_2023_Esp_v1_0 <span class="sc">%&gt;%</span> <span class="fu">select</span>(P33N.A, P33ST.B, P33N.C, P33N.D, idenpa) </span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>proc_baro2 <span class="ot">&lt;-</span> proc_baro2 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(idenpa<span class="sc">==</span><span class="dv">152</span>)                </span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>                          </span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(proc_baro2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  P33N.A P33ST.B P33N.C P33N.D idenpa
-1      4       2      2      3     32
-2      2       3      2      3     32
-3      1       4      3      1     32
-4      2       3      3      2     32
-5      2       3      3      2     32
-6      2       2      3      2     32</code></pre>
+<pre><code>     P33N.A P33ST.B P33N.C P33N.D idenpa
+5805      4       4      2      3    152
+5806      3       2      2      2    152
+5807      4       4      1      4    152
+5808      3       3      1      2    152
+5809      4       3      2      3    152
+5810      4       4      1      4    152</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#RECODIFICACIÓN: visualizamos 1 variable y vemos que los na se representan mediante -5.</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>proc_baro2 <span class="ot">&lt;-</span> proc_baro2 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(idenpa<span class="sc">==</span><span class="dv">152</span>)</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(proc_baro2<span class="sc">$</span>P33N.A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ORDENAR CATEGORIAS.</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a> <span class="co">#reordenar categorias para que todas sean intuitivas y así, no nos den valores negativos en el raw_alpha. Recordar que están reordenadas de diferentes maneras porque las preguntas no se formularon de forma neutral.</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>proc_baro2<span class="sc">$</span>P33N.A <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_baro2<span class="sc">$</span>P33N.A, <span class="st">"1=3; 2=2; 3=1; 4=0"</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>proc_baro2<span class="sc">$</span>P33ST.B <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_baro2<span class="sc">$</span>P33ST.B, <span class="st">"1=1; 2=2; 3=3; 4=0"</span>)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>proc_baro2<span class="sc">$</span>P33N.C <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_baro2<span class="sc">$</span>P33N.C, <span class="st">"1=1; 2=2; 3=3; 4=0"</span>)</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>proc_baro2<span class="sc">$</span>P33N.D <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_baro2<span class="sc">$</span>P33N.D, <span class="st">"1=3; 2=2; 3=1; 4=0"</span>)</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a><span class="co">#RECODIFICACIÓN: visualizamos 1 variable y vemos que los na se representan mediante -5.</span></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(proc_baro2<span class="sc">$</span>P33N.D)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
- -5   1   2   3   4 
- 57  51 301 543 248 </code></pre>
+ -5   0   1   2   3 
+ 50 259 421 403  67 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Quitamos los na (-5) de otra forma</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>proc_baro2 <span class="ot">&lt;-</span> proc_baro2 <span class="sc">%&gt;%</span> </span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_na</span>(., <span class="at">na =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Quitamos los na (-5) de otra form</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>proc_baro2 <span class="ot">&lt;-</span> proc_baro2 <span class="sc">%&gt;%</span> </span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_na</span>(., <span class="at">na =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="estimar-correlación-y-medir-consistencia-interna." class="level4">
 <h4 class="anchored" data-anchor-id="estimar-correlación-y-medir-consistencia-interna.">Estimar correlación y medir consistencia interna.</h4>
@@ -847,72 +845,97 @@ carga    -0.03060436  0.40696096  0.26589530  0.2814832  1.00000000</code></pre>
 <pre><code>Warning in cor(proc_baro2): the standard deviation is zero</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            P33N.A    P33ST.B     P33N.C     P33N.D idenpa
-P33N.A   1.0000000 -0.3410044 -0.4436821  0.5975280     NA
-P33ST.B -0.3410044  1.0000000  0.4170794 -0.2822104     NA
-P33N.C  -0.4436821  0.4170794  1.0000000 -0.3797189     NA
-P33N.D   0.5975280 -0.2822104 -0.3797189  1.0000000     NA
-idenpa          NA         NA         NA         NA      1</code></pre>
+<pre><code>           P33N.A   P33ST.B    P33N.C    P33N.D idenpa
+P33N.A  1.0000000 0.2194616 0.3475327 0.5975280     NA
+P33ST.B 0.2194616 1.0000000 0.3086805 0.1925865     NA
+P33N.C  0.3475327 0.3086805 1.0000000 0.3409958     NA
+P33N.D  0.5975280 0.1925865 0.3409958 1.0000000     NA
+idenpa         NA        NA        NA        NA      1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ALPHA DE CHRONACH.</span></span>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ALPHA DE CHROBACH.</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(proc_baro2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in psych::alpha(proc_baro2): Item = idenpa had no variance and was
 deleted but still is counted in the score</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in psych::alpha(proc_baro2): Some items were negatively correlated with the first principal component and probably 
-should be reversed.  
-To do this, run the function again with the 'check.keys=TRUE' option</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Some items ( P33ST.B P33N.C ) were negatively correlated with the first principal component and 
-probably should be reversed.  
-To do this, run the function again with the 'check.keys=TRUE' option</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Reliability analysis   
 Call: psych::alpha(x = proc_baro2)
 
-  raw_alpha std.alpha G6(smc) average_r   S/N   ase mean   sd median_r
-     -0.33     -0.37    0.14    -0.072 -0.27 0.069   32 0.29    -0.31
+  raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd median_r
+      0.67      0.67    0.63      0.33   2 0.016   32 0.45     0.32
 
     95% confidence boundaries 
          lower alpha upper
-Feldt    -0.46 -0.33 -0.21
-Duhachek -0.46 -0.33 -0.19
+Feldt     0.63  0.67   0.7
+Duhachek  0.63  0.67   0.7
 
  Reliability if an item is dropped:
-        raw_alpha std.alpha G6(smc) average_r    S/N alpha se var.r med.r
-P33N.A     -0.384    -0.293   0.045   -0.0816 -0.226    0.074  0.19 -0.28
-P33ST.B    -0.143    -0.266   0.216   -0.0753 -0.210    0.055  0.34 -0.38
-P33N.C      0.016    -0.026   0.281   -0.0086 -0.025    0.050  0.28 -0.28
-P33N.D     -0.539    -0.487  -0.012   -0.1225 -0.327    0.080  0.22 -0.34
+        raw_alpha std.alpha G6(smc) average_r S/N alpha se  var.r med.r
+P33N.A       0.53      0.54    0.45      0.28 1.2    0.025 0.0061  0.31
+P33ST.B      0.70      0.69    0.62      0.43 2.3    0.015 0.0214  0.35
+P33N.C       0.61      0.60    0.56      0.34 1.5    0.021 0.0513  0.22
+P33N.D       0.55      0.55    0.46      0.29 1.2    0.024 0.0043  0.31
 
  Item statistics 
-           n raw.r std.r   r.cor r.drop mean   sd
-P33N.A  1096  0.51  0.46  0.3590 -0.059  2.9 0.81
-P33ST.B 1096  0.40  0.45  0.0011 -0.162  2.2 0.78
-P33N.C  1096  0.26  0.34 -0.1775 -0.252  1.7 0.73
-P33N.D  1096  0.59  0.53  0.4738 -0.015  2.8 0.87
+           n raw.r std.r r.cor r.drop mean   sd
+P33N.A  1096  0.78  0.76  0.69   0.55  1.1 0.81
+P33ST.B 1096  0.60  0.61  0.37   0.30  2.0 0.80
+P33N.C  1096  0.67  0.71  0.53   0.44  1.6 0.69
+P33N.D  1096  0.77  0.75  0.67   0.52  1.2 0.87
 
 Non missing response frequency for each item
-           1    2    3    4 miss
-P33N.A  0.05 0.26 0.47 0.22    0
-P33ST.B 0.19 0.51 0.25 0.05    0
-P33N.C  0.41 0.47 0.10 0.02    0
-P33N.D  0.06 0.35 0.37 0.23    0</code></pre>
+           0    1    2    3 miss
+P33N.A  0.22 0.47 0.26 0.05    0
+P33ST.B 0.05 0.19 0.51 0.25    0
+P33N.C  0.02 0.41 0.47 0.10    0
+P33N.D  0.23 0.37 0.35 0.06    0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>proc_baro2 <span class="ot">&lt;-</span> proc_baro2 <span class="sc">%&gt;%</span> </span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percepcion_inmigracion =</span> <span class="fu">sum</span>(P33N.A, P33ST.B, P33N.C, P33N.D))</span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">summary</span>(proc_baro2<span class="sc">$</span>Percepcion_inmigracion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>proc_baro2 <span class="ot">&lt;-</span> proc_baro2 <span class="sc">%&gt;%</span> </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percepcion_inmigracion =</span> <span class="fu">sum</span>(P33N.A, P33ST.B, P33N.C, P33N.D))</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">summary</span>(proc_baro2<span class="sc">$</span>Percepcion_inmigracion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  4.000   9.000  10.000   9.542  10.000  16.000 </code></pre>
+  0.000   4.000   6.000   5.964   8.000  11.000 </code></pre>
 </div>
 </div>
+<ul>
+<li><p>En base al Alpha de Chronbach, usado para medir la magnitud en que los items están correlacionados; se establece que con un valor de 0.667 (raw_alpha) que la consistencia es moderada esto es, los ítems de la escala están moderadamente relacionados entre sí. Esto significa que los ítems tienden a medir la misma construcción subyacente, pero puede haber cierta variabilidad en cómo lo hacen.</p></li>
+<li><p>El raw_alpha por items implican que:</p></li>
+<li><p>Un valor de 1 indica una perfecta consistencia interna, lo que significa que todas las respuestas a ese ítem están perfectamente correlacionadas entre sí.</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">P33N.A</td>
+<td style="text-align: right;">0.5283562</td>
+<td style="text-align: right;"><code>Existe una consistencia debil/moderada, las respuesta de este item no miden de la mejor manera el constructo latent</code>e.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">P33ST.B</td>
+<td style="text-align: right;">0.6969905</td>
+<td style="text-align: right;"><code>Existe una consistencia moderada/buena, esto es, las respuestas de este item miden de mejor manera el constructo.</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">P33N.C</td>
+<td style="text-align: right;">0.6064889</td>
+<td style="text-align: right;">Existe una consistencia moderada/debil, esto es, este item no mide de la mejor manera el constructo latente.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">P33N.D</td>
+<td style="text-align: right;">0.5459227</td>
+<td style="text-align: right;">Hay una consistencia debil en este item, la primera variable analizada (P33NA) y esta, representan los items que menos sirven para medir este constructo latente creado.</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>En resumen, podemos establecer que, si bien las variables seleccionadas para establecer una investigación de la percepción sobre la inmigración eran inicialmente las más adecuadas; la medición de correlaciones y la construcción de Escala demostró que los items no son lo suficientemente exhaustivos para medir el constructo latente. Por ende, valdría la pena combinar datos y/o mejores variables.</p></li>
+</ul>
 
 </section>
 </section>

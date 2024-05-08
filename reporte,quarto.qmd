@@ -261,6 +261,9 @@ Para esta parte cargaremos nuevos paquetes que nos perimitirán generar tablas y
 ```{r}
 #Preparación de datos -Correlciones-.
 
+Latinobarometro_2023 <- load("C:/Users/Acer/OneDrive - Universidad Alberto Hurtado/Escritorio/R studio y complementos/Trabajo2_OFCRGIT/input/Latinobarometro_2023_Esp_Rdata_v1_0.rdata")
+
+
 pacman::p_load(dplyr, # Manipulacion datos
                sjmisc, # Descriptivos
                sjPlot, # Tablas
@@ -268,18 +271,12 @@ pacman::p_load(dplyr, # Manipulacion datos
                kableExtra, #Tablas
                GGally, # Correlaciones
                corrplot) # Correlaciones
-
-options(scipen = 999) # para desactivar notacion cientifica
-rm(list = ls()) # para limpiar el entorno de trabajo
-
-Latinobarometro_2023 <- load("C:/Users/Acer/OneDrive - Universidad Alberto Hurtado/Escritorio/R studio y complementos/Trabajo2_OFCRGIT/input/Latinobarometro_2023_Esp_Rdata_v1_0.rdata")
-
 proc_baro <- Latinobarometro_2023_Esp_v1_0 %>% dplyr::filter(idenpa==152)
 
 #Selección de una variable numérica y 6 categóricas.
 proc_baro <- Latinobarometro_2023_Esp_v1_0 %>% select(edad=edad, economia=P33N.A, trabajo=P33ST.B, crimen=P33N.C, carga=P33N.D)
 
-Latinobarometro_2023_Esp_v1_0 <- proc_baro
+proc_baro <- na.omit(proc_baro)
 dim(proc_baro)
 
 ```
@@ -306,7 +303,7 @@ corrplot.mixed(M)
 
 ```
 
-Frente a este gráfico, podemos establecer que las variables tienden a tener correlaciones pequeñas en general, donde destaca que el coeficiente de Pearson entre la variable que mide la percepción de que la inmigración afecta a la economía (economia) y la variable donde que mide la percepción de que la imigración está asociado al crimen (crimen), es una correlación positiva y moderada (r=3.8).
+Frente a este gráfico, podemos establecer que las variables tienden a tener correlaciones pequeñas en general, donde destaca que el coeficiente de Pearson entre la variable que mide la percepción de que la inmigración afecta a la economía (economia) y la variable donde que mide la percepción de que la imigración está asociado al crimen (crimen), es una correlación positiva y moderada (r=3.81).
 
 ### Creación de una escala.
 
@@ -320,32 +317,32 @@ pacman::p_load(tidyverse, #Conjunto de paquetes, sobre todo dplyr y ggplot2
                sjmisc,
                psych)
 
-options(scipen = 999) # para desactivar notacion cientifica
-rm(list = ls()) # para limpiar el entorno de trabajo
-
-
 Latinobarometro_2023 <- load("C:/Users/Acer/OneDrive - Universidad Alberto Hurtado/Escritorio/R studio y complementos/Trabajo2_OFCRGIT/input/Latinobarometro_2023_Esp_Rdata_v1_0.rdata")
 
 #FILTRO BBDD.
 
-#SELECCION VARIABLES PARA ESCALA.
-proc_baro2 <- Latinobarometro_2023_Esp_v1_0 %>% select(
-                                            P33N.A, 
-                                            P33ST.B, # competir laboralmente
-                                            P33N.C, # aumento del crimen
-                                            P33N.D,
-                                            idenpa)
 
+#SELECCION VARIABLES PARA ESCALA.
+proc_baro2 <- Latinobarometro_2023_Esp_v1_0 %>% select(P33N.A, P33ST.B, P33N.C, P33N.D, idenpa) 
+proc_baro2 <- proc_baro2 %>% dplyr::filter(idenpa==152)                
+                          
 head(proc_baro2)
+
+#ORDENAR CATEGORIAS.
+ #reordenar categorias para que todas sean intuitivas y así, no nos den valores negativos en el raw_alpha. Recordar que están reordenadas de diferentes maneras porque las preguntas no se formularon de forma neutral.
+proc_baro2$P33N.A <- car::recode(proc_baro2$P33N.A, "1=3; 2=2; 3=1; 4=0")
+proc_baro2$P33ST.B <- car::recode(proc_baro2$P33ST.B, "1=1; 2=2; 3=3; 4=0")
+proc_baro2$P33N.C <- car::recode(proc_baro2$P33N.C, "1=1; 2=2; 3=3; 4=0")
+proc_baro2$P33N.D <- car::recode(proc_baro2$P33N.D, "1=3; 2=2; 3=1; 4=0")
+
+
 
 
 #RECODIFICACIÓN: visualizamos 1 variable y vemos que los na se representan mediante -5.
-proc_baro2 <- proc_baro2 %>% dplyr::filter(idenpa==152)
 
-table(proc_baro2$P33N.A)
+table(proc_baro2$P33N.D)
 
-#Quitamos los na (-5) de otra forma
-
+#Quitamos los na (-5) de otra form
 proc_baro2 <- proc_baro2 %>% 
   set_na(., na = c(-5)) %>% 
   na.omit()
@@ -367,4 +364,17 @@ proc_baro2 <- proc_baro2 %>%
 
 ```
 
-En base al Alpha de Chronbach, usado para medir la magnitud en que los items están correlacionados; se establece que con un valor de 0.5
+-   En base al Alpha de Chronbach, usado para medir la magnitud en que los items están correlacionados; se establece que con un valor de 0.667 (raw_alpha) que la consistencia es moderada esto es, los ítems de la escala están moderadamente relacionados entre sí. Esto significa que los ítems tienden a medir la misma construcción subyacente, pero puede haber cierta variabilidad en cómo lo hacen.
+
+-   El raw_alpha por items implican que:
+
+-   Un valor de 1 indica una perfecta consistencia interna, lo que significa que todas las respuestas a ese ítem están perfectamente correlacionadas entre sí.
+
+    |         |           |                                                                                                                                                                           |
+    |:-----------------------|-----------------------:|-----------------------:|
+    | P33N.A  | 0.5283562 |                                                   `Existe una consistencia debil/moderada, las respuesta de este item no miden de la mejor manera el constructo latent`e. |
+    | P33ST.B | 0.6969905 |                                                       `Existe una consistencia moderada/buena, esto es, las respuestas de este item miden de mejor manera el constructo.` |
+    | P33N.C  | 0.6064889 |                                                              Existe una consistencia moderada/debil, esto es, este item no mide de la mejor manera el constructo latente. |
+    | P33N.D  | 0.5459227 |  Hay una consistencia debil en este item, la primera variable analizada (P33NA) y esta, representan los items que menos sirven para medir este constructo latente creado. |
+
+-   En resumen, podemos establecer que, si bien las variables seleccionadas para establecer una investigación de la percepción sobre la inmigración eran inicialmente las más adecuadas; la medición de correlaciones y la construcción de Escala demostró que los items no son lo suficientemente exhaustivos para medir el constructo latente. Por ende, valdría la pena combinar datos y/o mejores variables.

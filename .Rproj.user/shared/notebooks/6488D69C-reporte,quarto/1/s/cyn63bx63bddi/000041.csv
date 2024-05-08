@@ -1,0 +1,14 @@
+"0","#ALPHA DE CHROBACH.
+psych::alpha(proc_baro2)
+"
+"2","Warning: Item = idenpa had no variance and was deleted but still is counted in the score"
+"1","
+Reliability analysis "
+"1"," "
+"1"," 
+"
+"1","Call: "
+"1","psych::alpha(x = proc_baro2)
+"
+"1","
+ "

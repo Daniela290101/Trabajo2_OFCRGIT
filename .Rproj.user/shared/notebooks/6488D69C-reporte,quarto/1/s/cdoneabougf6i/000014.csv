@@ -1,6 +1,0 @@
-"0","data2 <- data2 %>% 
-  set_na(., na = c(-5)) %>% 
-  na.omit()
-"
-"2","Error: objeto 'data2' no encontrado
-"
