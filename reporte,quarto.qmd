@@ -276,6 +276,13 @@ proc_baro <- Latinobarometro_2023_Esp_v1_0 %>% dplyr::filter(idenpa==152)
 #Selección de una variable numérica y 6 categóricas.
 proc_baro <- Latinobarometro_2023_Esp_v1_0 %>% select(edad=edad, economia=P33N.A, trabajo=P33ST.B, crimen=P33N.C, carga=P33N.D)
 
+ #reordenar categorias para que todas sean intuitivas y así, no nos den valores negativos en el raw_alpha. Recordar que están reordenadas de diferentes maneras porque las preguntas no se formularon de forma neutral.
+proc_baro2$P33N.A <- car::recode(proc_baro2$P33N.A, "1=3; 2=2; 3=1; 4=0")
+proc_baro2$P33ST.B <- car::recode(proc_baro2$P33ST.B, "1=1; 2=2; 3=3; 4=0")
+proc_baro2$P33N.C <- car::recode(proc_baro2$P33N.C, "1=1; 2=2; 3=3; 4=0")
+proc_baro2$P33N.D <- car::recode(proc_baro2$P33N.D, "1=3; 2=2; 3=1; 4=0")
+
+
 proc_baro <- na.omit(proc_baro)
 dim(proc_baro)
 
@@ -303,7 +310,15 @@ corrplot.mixed(M)
 
 ```
 
-Frente a este gráfico, podemos establecer que las variables tienden a tener correlaciones pequeñas en general, donde destaca que el coeficiente de Pearson entre la variable que mide la percepción de que la inmigración afecta a la economía (economia) y la variable donde que mide la percepción de que la imigración está asociado al crimen (crimen), es una correlación positiva y moderada (r=3.81).
+Podemos ver que las correlaciones son positivas a excepción de las combinaciones con el item edad. Asimismo, si vemos a detalle tenemos que:
+
+-   Las personas que piensan que cree que los inmigrantes son una carga para el Estado tiene una correlación positiva moderada en relación a la variable "economia" (perccepción de que los inmigrantes causan estragos en el sitema económico): en la medida que piensan que los imigrantes son una carga para el Eº hay más estragos en la economía del país.
+
+-   También existe correlación positiva y moderada entre "crimen" y "trabajo" (r: 3.81). Esto es, las personas piensan que los inmigrantes están asociados al crimen en la medida que también piensan que los inmigrantes compiten por puestos de trabajo. De otra foma, hay más "crimen" en la medida que hay más "trabajo".
+
+-   Los demás valores implican correlaciones pequeñas.
+
+Frente a este gráfico, podemos establecer que las variables tienden a tener correlaciones pequeñas en general, donde destaca que el coeficiente de Pearson entre la variable que mide la percepción de que la inmigración afecta a la economía (economia) y la variable donde que mide la percepción de que la imigración está asociado al crimen (crimen), es una correlación positiva y moderada (r=3.81) y la correlación entre "Economía" y "carga" con r=0.407).
 
 ### Creación de una escala.
 
@@ -370,11 +385,11 @@ proc_baro2 <- proc_baro2 %>%
 
 -   Un valor de 1 indica una perfecta consistencia interna, lo que significa que todas las respuestas a ese ítem están perfectamente correlacionadas entre sí.
 
-    |         |           |                                                                                                                                                                           |
+    |         |           |                                                                                                                                                                          |
     |:-----------------------|-----------------------:|-----------------------:|
-    | P33N.A  | 0.5283562 |                                                   `Existe una consistencia debil/moderada, las respuesta de este item no miden de la mejor manera el constructo latent`e. |
-    | P33ST.B | 0.6969905 |                                                       `Existe una consistencia moderada/buena, esto es, las respuestas de este item miden de mejor manera el constructo.` |
-    | P33N.C  | 0.6064889 |                                                              Existe una consistencia moderada/debil, esto es, este item no mide de la mejor manera el constructo latente. |
-    | P33N.D  | 0.5459227 |  Hay una consistencia debil en este item, la primera variable analizada (P33NA) y esta, representan los items que menos sirven para medir este constructo latente creado. |
+    | P33N.A  | 0.5283562 |                                                  `Existe una consistencia debil/moderada, las respuesta de este item no miden de la mejor manera el constructo latent`e. |
+    | P33ST.B | 0.6969905 |                                                      `Existe una consistencia moderada/buena, esto es, las respuestas de este item miden de mejor manera el constructo.` |
+    | P33N.C  | 0.6064889 |                                                             Existe una consistencia moderada/debil, esto es, este item no mide de la mejor manera el constructo latente. |
+    | P33N.D  | 0.5459227 | Hay una consistencia debil en este item, la primera variable analizada (P33NA) y esta, representan los items que menos sirven para medir este constructo latente creado. |
 
 -   En resumen, podemos establecer que, si bien las variables seleccionadas para establecer una investigación de la percepción sobre la inmigración eran inicialmente las más adecuadas; la medición de correlaciones y la construcción de Escala demostró que los items no son lo suficientemente exhaustivos para medir el constructo latente. Por ende, valdría la pena combinar datos y/o mejores variables.
