@@ -316,7 +316,7 @@ Podemos ver que las correlaciones son positivas a excepción de las combinacione
 
 -   También existe correlación positiva y moderada entre "crimen" y "trabajo" (r: 3.81). Esto es, las personas piensan que los inmigrantes están asociados al crimen en la medida que también piensan que los inmigrantes compiten por puestos de trabajo. De otra foma, hay más "crimen" en la medida que hay más "trabajo".
 
--   Los demás valores implican correlaciones pequeñas.
+-   Los demás valores implican correlaciones pequeñas. creo que eso se debe corregir.
 
 Frente a este gráfico, podemos establecer que las variables tienden a tener correlaciones pequeñas en general, donde destaca que el coeficiente de Pearson entre la variable que mide la percepción de que la inmigración afecta a la economía (economia) y la variable donde que mide la percepción de que la imigración está asociado al crimen (crimen), es una correlación positiva y moderada (r=3.81) y la correlación entre "Economía" y "carga" con r=0.407).
 
@@ -338,7 +338,8 @@ Latinobarometro_2023 <- load("C:/Users/Acer/OneDrive - Universidad Alberto Hurta
 
 
 #SELECCION VARIABLES PARA ESCALA.
-proc_baro2 <- Latinobarometro_2023_Esp_v1_0 %>% select(P33N.A, P33ST.B, P33N.C, P33N.D, idenpa) 
+proc_baro2 <- Latinobarometro_2023_Esp_v1_0 %>% select(P33N.A, P33ST.B, P33N.C, P33N.D, idenpa, sexo, edad) 
+
 proc_baro2 <- proc_baro2 %>% dplyr::filter(idenpa==152)                
                           
 head(proc_baro2)
@@ -349,8 +350,6 @@ proc_baro2$P33N.A <- car::recode(proc_baro2$P33N.A, "1=3; 2=2; 3=1; 4=0")
 proc_baro2$P33ST.B <- car::recode(proc_baro2$P33ST.B, "1=1; 2=2; 3=3; 4=0")
 proc_baro2$P33N.C <- car::recode(proc_baro2$P33N.C, "1=1; 2=2; 3=3; 4=0")
 proc_baro2$P33N.D <- car::recode(proc_baro2$P33N.D, "1=3; 2=2; 3=1; 4=0")
-
-
 
 
 #RECODIFICACIÓN: visualizamos 1 variable y vemos que los na se representan mediante -5.
@@ -381,15 +380,85 @@ proc_baro2 <- proc_baro2 %>%
 
 -   En base al Alpha de Chronbach, usado para medir la magnitud en que los items están correlacionados; se establece que con un valor de 0.667 (raw_alpha) que la consistencia es moderada esto es, los ítems de la escala están moderadamente relacionados entre sí. Esto significa que los ítems tienden a medir la misma construcción subyacente, pero puede haber cierta variabilidad en cómo lo hacen.
 
--   El raw_alpha por items implican que:
+-   El raw_alpha por items implican que: *SE DEBEN ANALIZAR EN U CONJUNTO PARECE?*\*
 
 -   Un valor de 1 indica una perfecta consistencia interna, lo que significa que todas las respuestas a ese ítem están perfectamente correlacionadas entre sí.
 
     |         |           |                                                                                                                                                                          |
-    |:--------|----------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+    |:------------|------------:|----------------------------------------------:|
     | P33N.A  | 0.5283562 |                                                  `Existe una consistencia debil/moderada, las respuesta de este item no miden de la mejor manera el constructo latent`e. |
     | P33ST.B | 0.6969905 |                                                      `Existe una consistencia moderada/buena, esto es, las respuestas de este item miden de mejor manera el constructo.` |
     | P33N.C  | 0.6064889 |                                                             Existe una consistencia moderada/debil, esto es, este item no mide de la mejor manera el constructo latente. |
     | P33N.D  | 0.5459227 | Hay una consistencia debil en este item, la primera variable analizada (P33NA) y esta, representan los items que menos sirven para medir este constructo latente creado. |
 
 -   En resumen, podemos establecer que, si bien las variables seleccionadas para establecer una investigación de la percepción sobre la inmigración eran inicialmente las más adecuadas; la medición de correlaciones y la construcción de Escala demostró que los items no son lo suficientemente exhaustivos para medir el constructo latente. Por ende, valdría la pena combinar datos y/o mejores variables.
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_Entrega 4\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+### Establecer regresión Lineal.
+
+variable principal: percepcion_inmigracion.
+
+```{r}
+#CARGAMOS NUEVOS PAQUETES#
+pacman::p_load(dplyr, sjPlot, sjlabelled, stargazer, kableExtra, corrplot, texreg, ggplot2, ggpubr, ggputexreg, fastDummies, ggeffects)
+
+
+
+
+
+proc_baro2 <- proc_baro2 %>% select(Percepcion_inmigracion, edad=edad, sexo=sexo)
+
+
+```
+
+```{r}
+reg1 <- lm(Percepcion_inmigracion~ edad, data=proc_baro2)
+reg2 <- lm(Percepcion_inmigracion~ edad + sexo, data=proc_baro2)
+
+
+
+
+knitreg(list(reg1, reg2), 
+        custom.model.names = c("Modelo 1",
+                               "Modelo 2"),
+        custom.note = "*** p < 0.001; ** p < 0.01; * p < 0.05",
+        custom.coef.names = c("Intercepto", 
+                              "Edad",
+                              "Mujer <br> <i>(Ref. Hombre)</i>"),
+        caption = "Percepción inmigración",
+        caption.above = TRUE)
+```
+
+### Análisis de modelos:
+
+Modelo 1: En el caso de este modelo tenemos que con un 95% de confianza:
+
+Se incluye la edad como factor predictor con coeficiente de regresión de -0.01. Esto indica que, por cada unidad que aumenta, disminuye en -0.01 la percepción de inmigración manteniendo constante el sexo. Esto se traduce en que, a medida que aumenta la edad, aumenta el rechazo hacia la inmigración ya que esta tomaba valores de 1:muy mala percepción a 3:muy buena percepción.
+
+Finalmente, el modelo 1 logra explicar el 1% de la varianza de la variable dependiente (R2=0.01).
+
+Modelo 2: En este modelo tenemos que no tenemos nivel de confianza confiable, por lo que no es estadísticamente significantiva:
+
+Cuando incluimos como predictor al sexo (coef=0.08), nos indica que,las mujeres aumentarían 0.08 unidades en la escala de percepción de inmigración en comparación que los hombres, manteniendo la variable edad constante. Efecto que, como adelantamos anteriormente, no es significativa.
+
+Al igual que el modelo 1, el modelo 2 logra explicar el 1% de la varianza de la variable dependiente (R2=0.01). Esto es, un modelo que no es óptimo.
+
+### Gráfico
+
+```{r}
+ggeffects::ggpredict(reg2, terms = c("sexo")) %>%
+  ggplot(aes(x=x, y=predicted)) +
+  geom_bar(stat="identity", color="purple", fill="purple")+
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width=.1) +
+  labs(title="Sexo", x = "", y = "") +
+  theme_bw() +
+  scale_x_continuous(name = "",
+                     breaks = c(0,1),
+                     labels = c("Hombre", "Mujer"))+
+  scale_y_continuous(limits = c(0,16), 
+                     breaks = seq(0,16, by = 1))
+
+```
+
+El gráfico nos muestra que cuando observamos los valores predichos (proceso de comparación y análisis de patrones entre los datos y las predicciones) de la percepción de inmigración atravesada por sexo, vemos que no hay diferencia estadisticamente significativa, no hay mayor diferencia entre la predicción y el dato original.

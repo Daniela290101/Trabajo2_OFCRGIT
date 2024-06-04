@@ -1,8 +1,0 @@
-"0","graph1 <- proc_data %>% ggplot(aes(x = percep_inmg)) + "
-"0","  geom_bar(fill = ""purple"")+"
-"0","  labs(title = ""Percepción sobre inmigración"","
-"0","       x = ""Percepción de inmigracion"","
-"0","       y = ""Frecuencia"") +"
-"0","  theme_bw()"
-"0",""
-"0","graph1"

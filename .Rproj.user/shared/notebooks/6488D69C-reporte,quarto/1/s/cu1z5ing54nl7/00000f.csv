@@ -1,5 +1,0 @@
-"0","proc_data %>% "
-"0","  select(percep_inmg,sexo) %>%"
-"0","  dplyr::group_by(sexo=sjlabelled::as_label(sexo)) %>% "
-"0","  dplyr::summarise(Obs.=n(),Promedio=mean(percep_inmg),SD=sd(percep_inmg)) %>% "
-"0","  kable(., format = ""markdown"")"
