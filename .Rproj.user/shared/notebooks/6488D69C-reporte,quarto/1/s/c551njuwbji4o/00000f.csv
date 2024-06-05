@@ -1,0 +1,24 @@
+"0","#ALPHA DE CHROBACH.
+psych::alpha(proc_baro2)
+"
+"2","Warning: Item = idenpa had no variance and was deleted but still is counted in the score"
+"2","Warning: Some items were negatively correlated with the first principal component and probably 
+should be reversed.  
+To do this, run the function again with the 'check.keys=TRUE' option"
+"1","Some items ("
+"1"," "
+"1","edad"
+"1"," "
+"1",") were negatively correlated with the first principal component and 
+probably should be reversed.  
+To do this, run the function again with the 'check.keys=TRUE' option"
+"1","
+Reliability analysis "
+"1"," "
+"1"," 
+"
+"1","Call: "
+"1","psych::alpha(x = proc_baro2)
+"
+"1","
+ "
