@@ -10,7 +10,7 @@ bibliography: references.bib
 
 En las últimas décadas, se ha observado un incremento notable en las olas migratorias en diversas regiones del mundo . En América Latina, este fenómeno ha sido influenciado en gran medida por crisis políticas y recesiones económicas, que han motivado movimientos internacionales de personas en busca de mejores oportunidades de vida. @nairbisdesiréesibriandíaz2023
 
-En eundefinedste contexto, Chile ha destacado como un destino atractivo para la migración. La relativa estabilidad política y el crecimiento económico han generado un entorno propicio para la llegada de migrantes en busca de mejores condiciones de vida y oportunidades laborales. @navarreteyáñez2017 Sin embargo, la masividad de las olas migratorias provenientes de países con índices de pobreza elevados, han desencadenado una serie de episodios violentos y xenófobos como respuesta.  @constanzaambiadocortés2012
+En este contexto, Chile ha destacado como un destino atractivo para la migración. La relativa estabilidad política y el crecimiento económico han generado un entorno propicio para la llegada de migrantes en busca de mejores condiciones de vida y oportunidades laborales. @navarreteyáñez2017 Sin embargo, la masividad de las olas migratorias provenientes de países con índices de pobreza elevados, han desencadenado una serie de episodios violentos y xenófobos como respuesta.  @constanzaambiadocortés2012
 
 Si bien hasta el 2017 no existían grandes políticas migratorias, durante el 2024 se han desarrollado las Políticas Nacional de Migración y Extranjería (PNME) que permite establecer regulaciones ante los flujos migratorios con enfoques de género, derechos humanos, derechos de la niñez, etc. que han permitido reconocer tanto los factores que conlleva este fenómeno, como el derecho a migrar. 
 
@@ -391,7 +391,7 @@ proc_baro2 <- proc_baro2 %>%
 -   Un valor de 1 indica una perfecta consistencia interna, lo que significa que todas las respuestas a ese ítem están perfectamente correlacionadas entre sí.
 
     |         |           |                                                                                                                                                                          |
-    |:--------|----------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+    |:--------|--------:|----------------------------------------------------:|
     | P33N.A  | 0.5283562 |                                                  `Existe una consistencia debil/moderada, las respuesta de este item no miden de la mejor manera el constructo latent`e. |
     | P33ST.B | 0.6969905 |                                                      `Existe una consistencia moderada/buena, esto es, las respuestas de este item miden de mejor manera el constructo.` |
     | P33N.C  | 0.6064889 |                                                             Existe una consistencia moderada/debil, esto es, este item no mide de la mejor manera el constructo latente. |
@@ -437,7 +437,7 @@ knitreg(list(reg1, reg2),
 
 Modelo 1: En el caso de este modelo tenemos que con un 95% de confianza:
 
-Se incluye la edad como factor predictor con coeficiente de regresión de -0.01. Esto indica que, por cada unidad que aumenta, disminuye en -0.01 la percepción de inmigración manteniendo constante el sexo. Esto se traduce en que, a medida que aumenta la edad, aumenta el rechazo hacia la inmigración ya que esta tomaba valores de 1:muy mala percepción a 3:muy buena percepción.
+Se incluye la edad como factor predictor con coeficiente de regresión de -0.01. Esto indica que, por cada unidad que aumenta, disminuye en -0.01 la percepción de inmigración manteniendo constante el sexo. Esto se traduce en que, a medida que aumenta la edad, aumenta el rechazo hacia la inmigración. ya que esta tomaba valores de 1:muy mala percepción a 3:muy buena percepción.
 
 Finalmente, el modelo 1 logra explicar el 1% de la varianza de la variable dependiente (R2=0.01).
 
@@ -465,3 +465,5 @@ ggeffects::ggpredict(reg2, terms = c("sexo")) %>%
 ```
 
 El gráfico nos muestra que cuando observamos los valores predichos (proceso de comparación y análisis de patrones entre los datos y las predicciones) de la percepción de inmigración atravesada por sexo, vemos que no hay diferencia estadisticamente significativa, no hay mayor diferencia entre la predicción y el dato original.
+
+\_\_\_Entrega Presentación Quarto\_\_

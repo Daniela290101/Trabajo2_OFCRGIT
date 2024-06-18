@@ -465,3 +465,5 @@ ggeffects::ggpredict(reg2, terms = c("sexo")) %>%
 ```
 
 El gráfico nos muestra que cuando observamos los valores predichos (proceso de comparación y análisis de patrones entre los datos y las predicciones) de la percepción de inmigración atravesada por sexo, vemos que no hay diferencia estadisticamente significativa, no hay mayor diferencia entre la predicción y el dato original.
+
+\_\_\_Entrega Presentación Quarto\_\_
