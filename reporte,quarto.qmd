@@ -391,7 +391,7 @@ proc_baro2 <- proc_baro2 %>%
 -   Un valor de 1 indica una perfecta consistencia interna, lo que significa que todas las respuestas a ese ítem están perfectamente correlacionadas entre sí.
 
     |         |           |                                                                                                                                                                          |
-    |:-----------------|-----------------:|-----------------------------------:|
+    |:--------|----------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
     | P33N.A  | 0.5283562 |                                                  `Existe una consistencia debil/moderada, las respuesta de este item no miden de la mejor manera el constructo latent`e. |
     | P33ST.B | 0.6969905 |                                                      `Existe una consistencia moderada/buena, esto es, las respuestas de este item miden de mejor manera el constructo.` |
     | P33N.C  | 0.6064889 |                                                             Existe una consistencia moderada/debil, esto es, este item no mide de la mejor manera el constructo latente. |
