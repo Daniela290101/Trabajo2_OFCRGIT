@@ -65,6 +65,10 @@ Tendencia hacia una percepción positiva de la inmigración, teniendo en cuenta 
 ![](output/likert_percep.png)
 :::
 
+# Resultados.
+
+![](output/correlaciones.png)
+
 # Resultados
 
 :::: {.columns}

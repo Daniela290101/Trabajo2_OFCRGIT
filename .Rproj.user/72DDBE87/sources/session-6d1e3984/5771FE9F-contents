@@ -1,0 +1,112 @@
+---
+title: "Fenómenos migratorios"
+author: "Daniela Astudillo"
+format: revealjs
+editor: visual
+bibliography: inmigracion.bib
+link-citations: TRUE
+
+---
+
+
+## Introducción
+
+En las últimas décadas, se ha observado un incremento notable en las olas migratorias en diversas regiones del mundo.
+En América Latina, este fenómeno ha sido influenciado en gran medida por crisis políticas y recesiones económicas principalmente, motivando movimientos internacionales de personas en busca de mejores oportunidades de vida. @nairbisdesiréesibriandíaz2023
+
+Sin embargo, en las cs sociales ha resultado necesario entender la migración desde una perspectiva subjetiva. Por esto se plantea:
+
+## Objetivos.
+
+::: {.incremental}
+
+- Explorar la percepción que tienen los chilenos sobre los inmigrantes y las posibles repercusiones en la realidad social compartida. 
+ 
+- Hipótesis: percepción sobre la inmigración en Chile varía significativamente según la edad y el sexo de los individuos, con una mayor aceptación y apertura hacia la migración entre las personas más jóvenes y las mujeres. 
+
+:::
+
+# Descriptivos
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+Variable dependiente
+
+Percepción inmigración: conjunto de variables que permiten saber las sensaciones que les causa la llegada de inmigrantes a Chile en el ámbito moral (bueno/malo), en ámbito laboral, de seguridad, acción del Eº, en lo ecónomico y cultural.
+:::
+
+::: {.column width="40%"}
+
+Variables independentes
+
+Sexo y edad como razones potenciales de variaciones de la Percepción sobre inmigración.
+::::
+
+:::
+
+# Resultados
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](output/Graph.1_barra.png)
+:::
+
+::: {.column width="50%"}
+Tendencia hacia una percepción positiva de la inmigración, teniendo en cuenta que se recodificaron las variables de tal manera que, entre el número es más bajo, la percepción es negativa; entre más alto, la percepción es positiva.
+:::
+
+::::
+
+# Resultados
+
+![](output/likert_percep.png)
+:::
+
+# Resultados.
+
+![](output/correlaciones.png)
+
+# Resultados
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Cuando segmentamos por sexo vemos que, si bien las mujeres presentan percpeción sobre la inmigración más positiva que los hombres, esta no son diferencias significativas considerando la muestra inicial.
+:::
+
+::: {.column width="50%"}
+
+![](output/Graph.3_barra_sex.png)
+:::
+
+::::
+
+# Resultados del modelo.
+
+::: {.incremental}
+- Tras establecer una regresión lineal, se establecen 3 modelos.
+- El modelo logra explicar el 1%  la varianza de la variable dependiente (R2=0.01). No es modelo óptimo.
+- Predictor Sexo (coef=0.08): nos indica que,las mujeres aumentarían 0.08 unidades en la escala de percepción de inmigración en comparación que los hombres, manteniendo la variable edad constante. 
+:::
+ 
+# Resultados del modelo/conclusión.
+
+::: {.incremental}
+- Predictor edad: Por cada unidad que aumenta la edad, disminuye en -0.01 la percepción de inmigración manteniendo constante el sexo. Esto se traduce en que, a medida que aumenta la edad, aumenta el rechazo hacia la inmigración.
+- El modelo explica un 1%  de la varianza de la variable dependiente (R2=0.01). No es óptimo ni extrapolable.
+:::
+
+# Conclusión.
+
+::: {.incremental}
+- H. Inicial: La percepción sobre la inmigración en Chile varía significativamente según la edad y el sexo de los individuos, con una mayor aceptación y apertura hacia la migración entre las personas más jóvenes y las mujeres. 
+- Se rechaza la hipótesis, pues, aunque es correcta la afirmación partir de la construcción de la variables escogidas tenemos que no existen diferenias significativos entre sexo, ni en edad. 
+- Se debe tener en cuenta que no es un modelo confiable. 
+
+:::
+
+
